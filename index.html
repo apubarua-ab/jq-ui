@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+
+    <title>JQuery-02</title>
+    <style>
+      #drag { width: 150px; height: 150px; padding: 0.5em; }
+
+      #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+      #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+
+      #resizable { width: 150px; height: 150px; padding: 0.5em; }
+      #resizable h3 { text-align: center; margin: 0; }
+      .ui-resizable-helper { border: 1px dotted gray; }
+      .ui-progressbar {
+        position: relative;
+      }
+      .progress-label {
+        position: absolute;
+        left: 50%;
+        top: 4px;
+        font-weight: bold;
+        text-shadow: 1px 1px 0 #fff;
+      }
+      .toggler { width: 500px; height: 200px; position: relative; }
+        #button { padding: .5em 1em; text-decoration: none; }
+        #effect { width: 240px;  padding: 1em; border: 1px solid #000; background: #eee; color: #333; }
+        .newClass { text-indent: 40px; letter-spacing: .4em; width: 410px; height: 120px; padding: 30px; margin: 10px; font-size: 1.1em; }
+        .ui-menu { width: 150px; }
+  </style>
+
+  </head>
+  <body>
+
+    <!-- draggable -->
+    <div class="container">
+      <div id="drag" class="ui-widget-content">
+        <p>Drag me around</p>
+      </div>
+    </div>
+
+    <!-- droppable -->
+    <div class="container">
+      <div id="draggable" class="ui-widget-content">
+        <p>Drag me to my target</p>
+      </div>
+       
+      <div id="droppable" class="ui-widget-header">
+        <p>Drop here</p>
+      </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+
+    <!-- resizeable -->
+    <div class="container">
+      <div id="resizable" class="ui-widget-content">
+        <h3 class="ui-widget-header">Animate</h3>
+      </div>
+    </div>
+
+    <br><br>
+
+    <!-- accordian -->
+    <div class="container">
+      <div id="accordion">
+      <h3>Section 1</h3>
+      <div>
+        <p>
+        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+        ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+        amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+        odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+        </p>
+      </div>
+      <h3>Section 2</h3>
+      <div>
+        <p>
+        Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+        purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+        velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+        suscipit faucibus urna.
+        </p>
+      </div>
+      <h3>Section 3</h3>
+      <div>
+        <p>
+        Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+        Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+        ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+        lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+        </p>
+        <ul>
+          <li>List item one</li>
+          <li>List item two</li>
+          <li>List item three</li>
+        </ul>
+      </div>
+      <h3>Section 4</h3>
+      <div>
+        <p>
+        Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+        et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+        faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+        mauris vel est.
+        </p>
+        <p>
+        Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+        inceptos himenaeos.
+        </p>
+      </div>
+    </div>
+    </div>
+    <br><br><br><br>
+
+    <!-- autocomplete -->
+    <div class="container">
+      <div class="ui-widget">
+        <label for="tags">Tags: </label>
+        <input id="tags">
+      </div>
+    </div>
+    <br><br><br><br>
+
+    <!-- date-picker -->
+    <div class="container">
+      <p>Date: <input type="text" id="datepicker" size="30"></p>
+ 
+      <p>Animations:<br>
+        <select id="anim">
+          <option value="show">Show (default)</option>
+          <option value="slideDown">Slide down</option>
+          <option value="fadeIn">Fade in</option>
+          <option value="blind">Blind (UI Effect)</option>
+          <option value="bounce">Bounce (UI Effect)</option>
+          <option value="clip">Clip (UI Effect)</option>
+          <option value="drop">Drop (UI Effect)</option>
+          <option value="fold">Fold (UI Effect)</option>
+          <option value="slide">Slide (UI Effect)</option>
+          <option value="">None</option>
+        </select>
+      </p>
+    </div>
+    <br><br><br><br><br><br><br><br>
+
+    <!-- progressbar -->
+    <div class="container">
+      <div id="progressbar"><div class="progress-label">Loading...</div></div>
+    </div>
+    <br><br><br><br>
+
+    <!-- tooltip -->
+    <div class="container">
+      <p>There are various ways to customize the animation of a tooltip.</p>
+      <p>You can use the <a id="show-option" href="http://jqueryui.com/demos/tooltip/#option-show" title="slide down on show">show</a> and
+      <a id="hide-option" href="http://jqueryui.com/demos/tooltip/#option-hide" title="explode on hide">hide</a> options.</p>
+      <p>You can also use the <a id="open-event" href="http://jqueryui.com/demos/tooltip/#event-open" title="move down on show">open event</a>.</p>
+    </div>
+    <br><br><br>
+
+    <div class="container">
+      <div class="toggler">
+  <div id="effect" class="ui-corner-all">
+      Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede.
+  </div>
+</div>
+ 
+<button id="button" class="ui-state-default ui-corner-all">Run Effect</button>
+    </div>
+
+
+    <br><br><br><br>
+
+    <div class="container">
+      <div id="dialog" title="Basic dialog">
+  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+    </div>
+
+    <br><br><br>
+
+    <ul id="menu">
+  <li class="ui-state-disabled"><div>Toys (n/a)</div></li>
+  <li><div>Books</div></li>
+  <li><div>Clothing</div></li>
+  <li><div>Electronics</div>
+    <ul>
+      <li class="ui-state-disabled"><div>Home Entertainment</div></li>
+      <li><div>Car Hifi</div></li>
+      <li><div>Utilities</div></li>
+    </ul>
+  </li>
+  <li><div>Movies</div></li>
+  <li><div>Music</div>
+    <ul>
+      <li><div>Rock</div>
+        <ul>
+          <li><div>Alternative</div></li>
+          <li><div>Classic</div></li>
+        </ul>
+      </li>
+      <li><div>Jazz</div>
+        <ul>
+          <li><div>Freejazz</div></li>
+          <li><div>Big Band</div></li>
+          <li><div>Modern</div></li>
+        </ul>
+      </li>
+      <li><div>Pop</div></li>
+    </ul>
+  </li>
+  <li class="ui-state-disabled"><div>Specials (n/a)</div></li>
+</ul>
+   
+    <!-- JS links -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      $(document).ready(function(){
+        // draggable
+        $( "#drag" ).draggable();
+
+        // droppable
+        $( "#draggable" ).draggable();
+        $( "#droppable" ).droppable({
+          drop: function( event, ui ) {
+            $( this )
+              .addClass( "ui-state-highlight" )
+              .find( "p" )
+                .html( "Dropped!" );
+          }
+        });
+
+        // resizable
+        $( "#resizable" ).resizable({
+          animate: true
+        });
+
+        // accordion
+        $( "#accordion" ).accordion({
+          collapsible: true
+        });
+
+        // autocomplete
+        var aTags = [
+        "Apple",
+        "Banana",
+        "Sour",
+        "Malta",
+        "juice"
+        ];
+        $( "#tags" ).autocomplete({
+          source: aTags
+        });
+
+        // date-picker
+        $( "#datepicker" ).datepicker();
+        $( "#anim" ).on( "change", function() {
+          $( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
+        });
+
+        // progressbar
+        var progressbar = $( "#progressbar" ),
+            progressLabel = $( ".progress-label" );
+       
+          progressbar.progressbar({
+            value: false,
+            change: function() {
+              progressLabel.text( progressbar.progressbar( "value" ) + "%" );
+            },
+            complete: function() {
+              progressLabel.text( "Complete!" );
+            }
+          });
+       
+          function progress() {
+            var val = progressbar.progressbar( "value" ) || 0;
+       
+            progressbar.progressbar( "value", val + 2 );
+       
+            if ( val < 99 ) {
+              setTimeout( progress, 80 );
+            }
+          }
+       
+          setTimeout( progress, 2000 );
+
+          // tooltip
+          $( "#show-option" ).tooltip({
+            show: {
+              effect: "slideDown",
+              delay: 250
+            }
+          });
+          $( "#hide-option" ).tooltip({
+            hide: {
+              effect: "explode",
+              delay: 250
+            }
+          });
+          $( "#open-event" ).tooltip({
+            show: null,
+            position: {
+              my: "left top",
+              at: "left bottom"
+            },
+            open: function( event, ui ) {
+              ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+            }
+          });
+
+          $( "#button" ).on( "click", function() {
+            $( "#effect" ).addClass( "newClass", 1000, callback );
+          });
+       
+          function callback() {
+            setTimeout(function() {
+              $( "#effect" ).removeClass( "newClass" );
+            }, 1500 );
+          };
+
+          $( "#dialog" ).dialog();
+
+          $( "#menu" ).menu();
+      });
+    </script>
+  </body>
+</html>
